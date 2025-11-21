@@ -1,11 +1,14 @@
 import { redirect, type Handle } from '@sveltejs/kit'
+import { APP_SECRET } from "$env/static/private";
+import { CookieCrypt } from 'cookie-crypt';
+import { COOKIES } from '$lib';
 
 const guestRoutes: string[] = ['/login', '/create', '/forgot-password', '/update-password', '/verify']
 
 export const handle: Handle = async ({ event, resolve }) => {
-    const cookie : string|null = event.cookies.get("COOKIE_NAME") ?? null
+    CookieCrypt.initialize(APP_SECRET, event);
+    const cookie: string | null = await COOKIES.auth.get();
 
-    // If no cookie and not on guest rout, redirect to login
     if (!cookie && !guestRoutes.includes(event.url.pathname)){
         throw redirect(302, '/login')
     }

@@ -1,20 +1,21 @@
 import type { Actions } from './$types';
-import { API_ROUTE } from "$env/static/private";
-import { initCSRF, apiPost } from '$lib/api';
+import { PUBLIC_API_ROUTE } from "$env/static/public";
+import { COOKIES } from '$lib'
 
 export const actions = {
-	default: async ({ cookies, request }) => {
-		const data = await request.formData();
+	default: async ( event ) => {
+		const data = await event.request.formData();
 		const email = data.get('email');
 		const password = data.get('password');
 
-    if (!email || !password) {
+		if (!email || !password) {
 			return {status: 400, errors: { message: 'Email and password are required.' }}
 		}
 
-    try {
-
-
+		try {
+			// Authentication API calls
+			// ...
+			await COOKIES.auth.set('token')
 		} catch (error) {
 			console.error('Login error:', error);
 			return {
