@@ -3,7 +3,7 @@ import { APP_SECRET } from "$env/static/private";
 import { CookieCrypt } from 'cookie-crypt';
 import { COOKIES } from '$lib';
 
-const guestRoutes: string[] = ['/sign-in', '/sign-up', '/forgot-password', '/update-password']
+const guestRoutes: string[] = ['/sign-in', '/sign-up', '/forgot-password', '/reset']
 const commonRoutes: string[] = ['/verify']
 
 export const handle: Handle = async ({ event, resolve }) => {

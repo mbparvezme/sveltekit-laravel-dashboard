@@ -1,0 +1,19 @@
+<script>
+	import {Form, Input, Button, Checkbox, Card, HelperText} from 'theui-svelte'
+</script>
+
+<Card class="max-w-md mx-auto md:mt-24 mt-16 p-6" shadow="lg">
+	<div class="pb-4 mb-3 border-b border-gray-200 dark:border-gray-800">
+		<h2 class=" text-3xl font-bold mb-1">Request Password Reset</h2>
+		<HelperText class="text-gray-500">Enter your email to reset your password</HelperText>
+	</div>
+
+	<Form>
+		<Input floatingLabel variant="flat" name="email">Email</Input>
+		<Button type="submit">Request Reset</Button>
+	</Form>
+
+	<div class="pt-4 mt-3 border-t border-gray-200 dark:border-gray-800 text-sm text-center text-gray-500">
+		<p>Don't need a reset? <a class="inline-block text-brand-secondary-500" href="/sign-in">Sign in!</a></p>
+	</div>
+</Card>
