@@ -1,6 +1,7 @@
 import type { Actions } from './$types';
+import { redirect } from '@sveltejs/kit'
 import { PUBLIC_API_ROUTE } from "$env/static/public";
-import { COOKIES } from '$lib'
+import { COOKIES } from '$lib';
 
 export const actions = {
 	default: async ( event ) => {
@@ -12,16 +13,8 @@ export const actions = {
 			return {status: 400, errors: { message: 'Email and password are required.' }}
 		}
 
-		try {
-			// Authentication API calls
-			// ...
-			await COOKIES.auth.set('token')
-		} catch (error) {
-			console.error('Login error:', error);
-			return {
-				status: 500,
-				errors: { message: 'Something went wrong. Please try again.' }
-			};
-		}
+		await COOKIES.auth.set('token')
+		throw redirect(302, '/')
+
 	}
 } satisfies Actions;

@@ -3,14 +3,15 @@ import { APP_SECRET } from "$env/static/private";
 import { CookieCrypt } from 'cookie-crypt';
 import { COOKIES } from '$lib';
 
-const guestRoutes: string[] = ['/login', '/create', '/forgot-password', '/update-password', '/verify']
+const guestRoutes: string[] = ['/sign-in', '/sign-up', '/forgot-password', '/update-password']
+const commonRoutes: string[] = ['/verify']
 
 export const handle: Handle = async ({ event, resolve }) => {
     CookieCrypt.initialize(APP_SECRET, event);
     const cookie: string | null = await COOKIES.auth.get();
 
-    if (!cookie && !guestRoutes.includes(event.url.pathname)){
-        throw redirect(302, '/login')
+    if (!cookie && !guestRoutes.includes(event.url.pathname) && !commonRoutes.includes(event.url.pathname)){
+        throw redirect(302, '/sign-in')
     }
 
     return await resolve(event)

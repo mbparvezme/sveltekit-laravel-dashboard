@@ -45,6 +45,7 @@
 		"vitest-browser-svelte": "^1.1.0"
 	},
 	"dependencies": {
-		"data-crypt": "^1.0.0-rc4"
+		"data-crypt": "^1.0.0-rc4",
+		"theui-svelte": "^2.0.9"
 	}
 }
