@@ -2,17 +2,25 @@ import { redirect, type Handle } from '@sveltejs/kit'
 import { APP_SECRET } from "$env/static/private";
 import { CookieCrypt } from 'cookie-crypt';
 import { COOKIES } from '$lib';
+import { guestRoutes } from '$lib/const';
 
-const guestRoutes: string[] = ['/sign-in', '/sign-up', '/forgot-password', '/reset']
 const commonRoutes: string[] = ['/verify']
 
 export const handle: Handle = async ({ event, resolve }) => {
     CookieCrypt.initialize(APP_SECRET, event);
-    const cookie: string | null = await COOKIES.auth.get();
+    const token = await COOKIES.auth.get();
+    const path = event.url.pathname;
 
-    if (!cookie && !guestRoutes.includes(event.url.pathname) && !commonRoutes.includes(event.url.pathname)){
-        throw redirect(302, '/sign-in')
+    const isPublic = guestRoutes.some(r => path.startsWith(r));
+    const isCommon = commonRoutes.some(r => path.startsWith(r));
+
+    if (!token && !isPublic && !isCommon) {
+        throw redirect(303, '/sign-in');
     }
 
-    return await resolve(event)
+    if (token && isPublic && !isCommon) {
+        throw redirect(303, '/');
+    }
+
+    return resolve(event);
 }
