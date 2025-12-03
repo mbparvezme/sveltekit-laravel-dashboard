@@ -4,3 +4,10 @@
 
 @import 'theui-svelte/style';
 @source "../node_modules/theui-svelte";
+
+.border-light{
+  border-color: var(--color-gray-200);
+  @variant dark {
+    border-color: var(--color-gray-700);
+  }
+}

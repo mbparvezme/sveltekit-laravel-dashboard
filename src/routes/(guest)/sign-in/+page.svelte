@@ -8,7 +8,7 @@
 			<h2 class=" text-3xl font-bold mb-1">Sign In</h2>
 			<HelperText class="text-gray-500">Enter your credentials to continue</HelperText>
 		</div>
-	
+
 		<Form>
 			<Input floatingLabel variant="flat" name="email">Email</Input>
 			<Input floatingLabel variant="flat" name="password" type="password">Password</Input>
