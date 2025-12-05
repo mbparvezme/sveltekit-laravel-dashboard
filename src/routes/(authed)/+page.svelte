@@ -3,7 +3,7 @@
   import Heading from "$lib/components/Heading.svelte";
 </script>
 
-<Heading title="Your Career Dashboard" subtitle="Stay on top of opportunities and track your progress">
+<Heading title="Dashboard" subtitle="Welcome to this dashboard">
   <Button size="sm" outline shadow="none">
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>This Month
   </Button>
@@ -11,12 +11,12 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
       <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
     </svg>
-    Get Recommendations
+    Get Connections
   </Button>
 </Heading>
 
 <!-- <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"> -->
-<div class="grid gap-6 sm:grid-cols-3">
+<div class="grid gap-6 sm:grid-cols-4">
   <Card shadow="none" class="flex flex-col rounded-xl bg-linear-to-br backdrop-blur from-blue-500/10 to-cyan-500/10">
     <div class="px-6 pt-2">
       <div class="flex items-start justify-between">
@@ -40,10 +40,10 @@
   </Card>
 
   <Card shadow="none" class="flex flex-col rounded-xl bg-linear-to-br backdrop-blur from-green-500/10 to-emerald-500/10">
-    <div class="px-6 pt-6">
+    <div class="px-6 pt-2">
       <div class="flex items-start justify-between">
         <div class="flex-1">
-          <p class="font-medium mb-1">CV Downloads</p>
+          <p class="font-medium mb-1">File Downloads</p>
           <p class="text-3xl font-bold">42</p>
           <p class="text-sm mt-2 flex items-center gap-1 text-green-700">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -61,8 +61,8 @@
     </div>
   </Card>
 
-  <!-- <div class="flex flex-col gap-6 rounded-xl py-6 bg-linear-to-br backdrop-blur from-purple-500/10 to-pink-500/10">
-    <div class="px-6 pt-6">
+  <Card shadow="none" class="flex flex-col rounded-xl bg-linear-to-br backdrop-blur from-purple-50 to-purple-100">
+    <div class="px-6 pt-2">
       <div class="flex items-start justify-between">
         <div class="flex-1">
           <p class="text-sm font-medium mb-1">Total Applications</p>
@@ -82,7 +82,7 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </Card>
 
   <Card shadow="none" class="flex flex-col rounded-xl bg-linear-to-br backdrop-blur from-orange-500/10 to-red-500/10">
     <div class="px-6 pt-6">
@@ -105,51 +105,4 @@
       </div>
     </div>
   </Card>
-</div>
-
-<div class="grid gap-6 md:grid-cols-3">
-  <div class="md:col-span-2"></div>
-
-  <div class="space-y-6">
-    <div class="flex flex-col gap-6 rounded-xl py-6 shadow-xl overflow-hidden">
-      <div class="flex items-center justify-between px-6">
-        <div class="text-sm font-bold">AI CV Analysis</div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>
-      </div>
-      <div>
-        <div class="px-6 space-y-6">
-          <div class="space-y-2">
-            <div class="flex justify-between text-sm">
-              <span class="text-muted">Usage</span>
-              <span class="font-medium">3/5</span>
-            </div>
-            <Progress end={55} barClasses="bg-linear-to-r from-blue-500 to-cyan-500" />
-          </div>
-          <Button outline size="sm" class="text-gray-900 border-gray-900 w-full">Analyze CV</Button>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex flex-col gap-6 rounded-xl py-6 shadow-xl overflow-hidden">
-      <div class="flex items-center justify-between px-6">
-        <div class="text-sm font-bold">AI Cover Letter</div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>
-      </div>
-      <div>
-        <div class="px-6 space-y-6">
-          <div class="space-y-2">
-            <div class="flex justify-between text-sm">
-              <span class="text-muted">Usage</span>
-              <span class="font-medium">3/5</span>
-            </div>
-            <div class="h-2 w-full rounded-full bg-muted overflow-hidden">
-              <div class="h-full bg-linear-to-r from-blue-500 to-cyan-500 transition-all" style="width: 60%;"></div>
-            </div>
-          </div>
-          <Button outline size="sm" class="text-gray-900 border-gray-900 w-full">Generate Cover Latter</Button>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>

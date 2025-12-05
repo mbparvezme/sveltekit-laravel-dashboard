@@ -1,5 +1,6 @@
 <script>
-	import { Form, Input, Button, Checkbox, Card, HelperText} from 'theui-svelte'
+	import { Form, Input, Button, Checkbox, Card, HelperText, Alert} from 'theui-svelte'
+	let { form } = $props();
 </script>
 
 <section class="h-screen w-screen overflow-y-auto flex justify-center items-center p-8 sm:p-16 lg:p-24">
@@ -8,9 +9,9 @@
 			<h2 class=" text-3xl font-bold mb-1">Sign In</h2>
 			<HelperText class="text-gray-500">Enter your credentials to continue</HelperText>
 		</div>
-
+		{#if form?.errors}<Alert>{form?.errors.message}</Alert>{/if}
 		<Form>
-			<Input floatingLabel variant="flat" name="email">Email</Input>
+			<Input floatingLabel variant="flat" name="userid">Email</Input>
 			<Input floatingLabel variant="flat" name="password" type="password">Password</Input>
 			<div class="pb-2">
 				<Checkbox rounded="sm" size="sm" labelClasses="text-xs text-muted" name="remember">Stay logged in for 7 days</Checkbox>

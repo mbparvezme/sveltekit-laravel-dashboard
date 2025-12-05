@@ -1,21 +1,13 @@
 <script lang="ts">
-	import '../../app.css';
-	import favicon from '$lib/assets/favicon.svg';
-
-	import { Container } from 'theui-svelte'
-    import Navbar from '$lib/components/Navbar.svelte';
-	
+  import Navbar from '$lib/components/Navbar.svelte';
+	import { Button } from 'theui-svelte'
 	let { children } = $props();
 </script>
-
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
 
 <Navbar />
 
 <div class="flex">
-  <aside class="fixed left-0 top-[61px] hidden h-[calc(100vh-61px)] w-64 overflow-y-auto border-r border-light bg-background transition-all duration-200 lg:block">
+  <aside class="fixed left-0 top-[61px] hidden h-[calc(100vh-61px)] w-64 overflow-y-auto transition-all duration-200 lg:block">
     <nav class="space-y-2 py-4 ps-8 pe-4">
       <a class="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors bg-brand-primary-100" href="/">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>
@@ -23,35 +15,17 @@
       </a>
       <a class="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors text-foreground hover:bg-muted" href="/profile">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-        <span>Profile &amp; CV</span>
+        <span>Profile</span>
       </a>
-      <button class="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors text-foreground hover:bg-muted">
-        <span>Available jobs</span>
-      </button>
-      <button class="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors text-foreground hover:bg-muted">
-        <span>Applications</span>
-      </button>
-      <button class="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors text-foreground hover:bg-muted">
-        <span>Skill Exams</span>
-      </button>
-      <button class="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors text-foreground hover:bg-muted">
-        <span>AI tools</span>
-      </button>
-      <button class="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors text-foreground hover:bg-muted">
-        <span>Recommendations</span>
-      </button>
-      <button class="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors text-foreground hover:bg-muted">
-        <span>Activity</span>
-      </button>
     </nav>
     <div class="absolute bottom-0 left-0 right-0 border-t border-light bg-muted/30 p-4">
-      <button class="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-destructive hover:bg-destructive/10 transition-colors">
+      <Button class="w-full flex items-center bg-slate-900 leading-4" href="/logout">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" x2="9" y1="12" y2="12"></line></svg>
         <span>Logout</span>
-      </button>
+      </Button>
     </div>
   </aside>
-  <article class="w-full transition-all duration-200 lg:ml-64 bg-slate-50">
+  <article class="w-full transition-all duration-200 lg:ml-64 bg-slate-50 min-h-[calc(100vh-60px)]">
     <div class="p-6 space-y-6">
   	  {@render children()}
     </div>
