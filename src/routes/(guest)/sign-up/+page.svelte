@@ -1,5 +1,6 @@
 <script>
-	import { Form, Input, Button, Card, HelperText} from 'theui-svelte'
+	import { Form, Input, Button, Card, HelperText, Alert } from 'theui-svelte'
+	let { form } = $props()
 </script>
 
 <section class="h-screen w-screen overflow-y-auto flex justify-center items-center p-8 sm:p-16 lg:p-24">
@@ -8,12 +9,12 @@
 			<h2 class=" text-3xl font-bold mb-1">Create Account</h2>
 			<HelperText class="text-gray-500">Enter your details to create account</HelperText>
 		</div>
-
+		{#if form?.errors}<Alert>{form?.errors.message}</Alert>{/if}
 		<Form>
 			<Input variant="flat" name="name" floatingLabel>Full Name</Input>
 			<Input variant="flat" name="email" type="email" floatingLabel>Email</Input>
 			<Input variant="flat" name="password" type="password" floatingLabel>Password</Input>
-			<Input variant="flat" name="confirm_password" type="password" floatingLabel>Confirm Password</Input>
+			<Input variant="flat" name="password_confirmation" type="password" floatingLabel>Confirm Password</Input>
 			<div class=""></div>
 			<Button type="submit">Create</Button>
 		</Form>
