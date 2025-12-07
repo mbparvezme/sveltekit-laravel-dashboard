@@ -10,7 +10,7 @@ export const actions = {
 		const password = data.get('password')
 
 		if (!userid || !password) {
-			return fail(400, {success: false, errors: { message: "Email and password are required." }});
+			return fail(400, {success: false, error: true, message: "Email and password are required." });
 		}
 
 		const res = await fetch(`${PUBLIC_API_ROUTE}/login`, {
@@ -21,13 +21,13 @@ export const actions = {
 
 		if (!res.ok) {
 			const result = await res.json()
-			return fail(res.status, { success: false, errors: { message: result?.message }})
+			return fail(res.status, { success: false, error: true, message: result?.message })
 		}
 
 		const result = await res.json()
 
 		if (!result.success || !result?.data?.token) {
-			return fail(res.status, {success: false, errors: {message: result?.message}})
+			return fail(res.status, { success: false, error: true, message: result?.message})
 		}
 
 		await COOKIES.auth.set(result.data.token)

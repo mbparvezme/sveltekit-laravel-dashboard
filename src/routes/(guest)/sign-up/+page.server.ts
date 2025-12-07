@@ -12,7 +12,7 @@ export const actions = {
     const password_confirmation = data.get('password_confirmation')
 
     if (!name || !email || !password || !password_confirmation) {
-      return fail(400, {success: false, errors: { message: "Please fill the registration from properly." }})
+      return fail(400, {success: false, error: true,  message: "Please fill the registration from properly." })
     }
 
     const res = await fetch(`${PUBLIC_API_ROUTE}/register`, {
@@ -23,13 +23,13 @@ export const actions = {
 
     if (!res.ok) {
       const result = await res.json()
-      return fail(res.status, { success: false, errors: { message: result?.message }})
+      return fail(res.status, { success: false, error: true,  message: result?.message })
     }
 
     const result = await res.json()
 
     if (!result.success || !result?.data?.token) {
-      return fail(res.status, {success: false, errors: {message: result?.message}})
+      return fail(res.status, { success: false, error: true, message: result?.message })
     }
 
     await COOKIES.auth.set(result.data.token)

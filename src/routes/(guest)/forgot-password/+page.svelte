@@ -1,5 +1,8 @@
 <script>
-	import {Form, Input, Button, Card, HelperText} from 'theui-svelte'
+	import {Alert, Form, Input, Button, Card, HelperText} from 'theui-svelte'
+	import { enhance } from '$app/forms'
+	let { form } = $props()
+	console.log(form)
 </script>
 
 <section class="h-screen w-screen overflow-y-auto flex justify-center items-center p-8 sm:p-16 lg:p-24">
@@ -9,10 +12,14 @@
 			<HelperText class="text-gray-500">Enter your email to reset your password</HelperText>
 		</div>
 
-		<Form>
+		{#if form?.message}<Alert type={form?.error ? "error" : "success"}>{form?.message}</Alert>{/if}
+
+		<form class="flex flex-col gap-4" method="POST" use:enhance>
+		<!-- <Form> -->
 			<Input floatingLabel variant="flat" name="email">Email</Input>
 			<Button type="submit">Request Reset</Button>
-		</Form>
+		<!-- </Form> -->
+		</form>
 
 		<div class="pt-4 mt-3 border-t border-gray-200 dark:border-gray-800 text-sm text-center text-gray-500">
 			<p>Don't need a reset? <a class="inline-block text-brand-secondary-500" href="/sign-in">Sign in!</a></p>

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { Navbar, NavBrand, NavLinkGroup, NavLink, Button } from "theui-svelte";
+  import { Navbar, NavBrand, NavLinkGroup, NavLink, NavDropdown, Button } from "theui-svelte";
 </script>
 
-<Navbar class="sticky top-0 bg-primary/95 backdrop-blur" navInnerClasses="max-w-auto w-full">
+<Navbar class="sticky top-0 bg-primary/95 backdrop-blur border-b border-slate-100" navInnerClasses="max-w-auto w-full">
   <div class="flex gap-4 items-center">
     <Button square={true} size="xs">M</Button>
     <NavBrand class="text-xl" href="/">EH</NavBrand>
@@ -22,12 +22,12 @@
     <NavLink href="#">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
     </NavLink>
-    <div class="flex items-center gap-4 ps-4 ms-5 border-s border-light">
+    <NavLink class="flex items-center gap-4 ps-4 ms-5 border-s border-light" href="/profile">
       <div class="hidden text-right sm:flex flex-col">
         <span class="text-sm font-bold leading-4">Alex Johnson</span>
         <span class="text-muted text-xs leading-4">Candidate</span>
       </div>
       <div class="h-8 w-8 rounded-full bg-linear-to-br from-blue-500 to-cyan-500"></div>
-    </div>
+    </NavLink>
   </NavLinkGroup>
 </Navbar>

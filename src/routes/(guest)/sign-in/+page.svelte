@@ -1,6 +1,7 @@
 <script>
 	import { Form, Input, Button, Checkbox, Card, HelperText, Alert} from 'theui-svelte'
-	let { form } = $props();
+	import { enhance } from '$app/forms'
+	let { form } = $props()
 </script>
 
 <section class="h-screen w-screen overflow-y-auto flex justify-center items-center p-8 sm:p-16 lg:p-24">
@@ -9,15 +10,17 @@
 			<h2 class=" text-3xl font-bold mb-1">Sign In</h2>
 			<HelperText class="text-gray-500">Enter your credentials to continue</HelperText>
 		</div>
-		{#if form?.errors}<Alert>{form?.errors.message}</Alert>{/if}
-		<Form>
+		{#if form?.error || !form?.success}<Alert>{form?.message}</Alert>{/if}
+		<form class="flex flex-col gap-4" method="POST" use:enhance>
+		<!-- <Form> -->
 			<Input floatingLabel variant="flat" name="userid">Email</Input>
 			<Input floatingLabel variant="flat" name="password" type="password">Password</Input>
 			<div class="pb-2">
 				<Checkbox rounded="sm" size="sm" labelClasses="text-xs text-muted" name="remember">Stay logged in for 7 days</Checkbox>
 			</div>
 			<Button type="submit">Sign In</Button>
-		</Form>
+		<!-- </Form> -->
+		</form>
 	
 		<div class="pt-4 mt-3 border-t border-gray-200 dark:border-gray-800 text-sm text-center text-gray-500">
 			<p><a class="inline-block text-brand-secondary-500" href="/forgot-password">Forgot password?</a></p>
