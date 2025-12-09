@@ -10,7 +10,9 @@
 			<h2 class=" text-3xl font-bold mb-1">Sign In</h2>
 			<HelperText class="text-gray-500">Enter your credentials to continue</HelperText>
 		</div>
-		{#if form?.error || !form?.success}<Alert>{form?.message}</Alert>{/if}
+
+		{#if form?.error || form?.success === false}<Alert>{form?.message}</Alert>{/if}
+
 		<form class="flex flex-col gap-4" method="POST" use:enhance>
 		<!-- <Form> -->
 			<Input floatingLabel variant="flat" name="userid">Email</Input>

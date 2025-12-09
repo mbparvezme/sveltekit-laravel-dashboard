@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Navbar from '$lib/components/Navbar.svelte';
+  import Navbar from '$lib/components/Navbar.svelte'
 	import { Button } from 'theui-svelte'
-	let { children } = $props();
+	let { children } = $props()
 </script>
 
 <Navbar />

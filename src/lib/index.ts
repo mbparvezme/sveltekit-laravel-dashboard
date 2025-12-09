@@ -9,3 +9,11 @@ export const COOKIES = {
         delete: async () : Promise<void> => await COOKIES.auth.name().then((name: string) => CookieCrypt.delete(name))
     }
 }
+
+export const fetchGetHeader = (token: string) => {
+    return {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`
+      }
+}
