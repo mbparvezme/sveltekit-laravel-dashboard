@@ -12,6 +12,7 @@
       <a class="font-semibold px-3 py-2 border-b border-slate-200/60 hover:bg-gray-50 transition-colors duration-500" href="/settings/profile">Profile settings</a>
       <a class="font-semibold px-3 py-2 border-b border-slate-200/60 hover:bg-gray-50 transition-colors duration-500" href="/settings/account">Account settings</a>
     </div>
-
-    {@render children()}
+    <div class="lg:col-span-3 flex flex-col gap-8">
+        {@render children()}
+    </div>
 </section>

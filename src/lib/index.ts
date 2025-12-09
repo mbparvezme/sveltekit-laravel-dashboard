@@ -1,5 +1,6 @@
 import { COOKIE_NAME } from "$env/static/private";
 import { CookieCrypt } from 'cookie-crypt'
+import type { SELECT_DATA } from 'theui-svelte/type'
 
 export const COOKIES = {
     auth: {
